@@ -9,3 +9,17 @@
 但是对于底层依赖而言，请求，国际化，主题等都是很难解决的问题
 
 希望能够实现类似 nestjs 这样将依赖约束在 module 内部，通过模块相互引用来实现最终的串联
+
+## packages
+
+### core
+
+可以移除 antd,react-dom,react-intl,react-use 的依赖，避免依赖太多的第三方库
+
+最好能实现模块的懒加载，而不是一股脑的全都加载完
+
+还需要结合 module 做依赖注入，所以最好能做成 render free，这样就能以纯框架的形式去构建
+
+- [ ] 移除 antd 依赖
+- [ ] 移除 react-intl 依赖
+- [ ] 移除 react-use 依赖
