@@ -20,6 +20,5 @@
 
 还需要结合 module 做依赖注入，所以最好能做成 render free，这样就能以纯框架的形式去构建
 
-- [ ] 移除 antd 依赖
-- [ ] 移除 react-intl 依赖
-- [ ] 移除 react-use 依赖
+- [x] 移除 antd 依赖
+- [x] 移除 react-use 依赖

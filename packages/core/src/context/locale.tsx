@@ -1,5 +1,4 @@
 import React, { FC, createContext, useReducer } from 'react';
-import { useLocalStorage } from 'react-use';
 
 type LocaleType = string;
 
@@ -24,9 +23,8 @@ const LocaleContext = createContext({} as ContextProps);
 
 const LocaleProvider: FC<PropsType> = (props) => {
   const { children, language } = props;
-  const [localeDefault] = useLocalStorage<LocaleType>('locale', language, {
-    raw: true,
-  });
+
+  const localeDefault = localStorage.getItem('locale') || language;
 
   const reducer = (state: DataType, action: Partial<DataType>) => {
     return {

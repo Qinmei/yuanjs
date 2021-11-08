@@ -21,5 +21,5 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '...'],
   },
-  externals: ['react', 'react-dom', 'antd'],
+  externals: ['react'],
 };
