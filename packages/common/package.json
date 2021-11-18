@@ -1,22 +1,18 @@
 {
-  "name": "@yuanjs/core",
-  "version": "0.0.1",
-  "description": "yuanjs core packages",
+  "name": "common",
+  "version": "0.0.0",
+  "description": "> TODO: description",
   "author": "Qinmei <sun.houtao@outlook.com>",
   "homepage": "https://github.com/Qinmei/yuanjs#readme",
   "license": "ISC",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "types": "./types/index.d.ts",
+  "main": "lib/common.js",
   "directories": {
-    "src": "src"
+    "lib": "lib",
+    "test": "__tests__"
   },
   "files": [
-    "src"
+    "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Qinmei/yuanjs.git"
@@ -26,11 +22,5 @@
   },
   "bugs": {
     "url": "https://github.com/Qinmei/yuanjs/issues"
-  },
-  "dependencies": {
-    "react-intl": "^5.21.2",
-    "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9",
-    "reflect-metadata": "^0.1.13"
   }
 }
