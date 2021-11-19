@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const webpackConfig = require("./webpack/webpack.dev");
+const webpackConfig = require("./webpack/webpack.config");
 const fs = require("fs");
 const path = require("path");
 const packages = fs.readdirSync(path.resolve(__dirname, "../packages/"));
