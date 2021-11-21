@@ -21,7 +21,7 @@ interface PropsType {
 
 const LocaleContext = createContext({} as ContextProps);
 
-const LocaleProvider: FC<PropsType> = (props) => {
+const LocaleProvider: FC<PropsType> = props => {
   const { children, language } = props;
 
   const localeDefault = localStorage.getItem('locale') || language;
@@ -40,7 +40,7 @@ const LocaleProvider: FC<PropsType> = (props) => {
   const [state, dispatch] = useReducer(reducer, data);
 
   const methods: MethodsType = {
-    changeLocale: (value) => dispatch({ locale: value }),
+    changeLocale: value => dispatch({ locale: value }),
   };
 
   const contextValue: ContextProps = {
@@ -48,7 +48,11 @@ const LocaleProvider: FC<PropsType> = (props) => {
     methods,
   };
 
-  return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
+  return (
+    <LocaleContext.Provider value={contextValue}>
+      {children}
+    </LocaleContext.Provider>
+  );
 };
 
 export { LocaleContext, LocaleProvider };
