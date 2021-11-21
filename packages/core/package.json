@@ -8,11 +8,9 @@
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "types": "./types/index.d.ts",
-  "directories": {
-    "src": "src"
-  },
   "files": [
-    "src"
+    "lib",
+    "types"
   ],
   "publishConfig": {
     "access": "public"
