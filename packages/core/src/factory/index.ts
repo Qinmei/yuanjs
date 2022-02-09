@@ -1,24 +1,18 @@
-import { createFactoryRender } from './render';
-import { createFactoryLocale } from './locale';
-import { createFactoryModel } from './model';
-import { AnyAction, Store } from 'redux';
+/**
+ * 1. 用遍历算法将所有的模块都遍历出来，然后将其组成二维数组
+ * 2. 用加载的中间件去处理二维模块数据，生成reduce结果
+ * 3. 将生成的组件层层包裹起来生成最终的组件详情
+ */
 
-interface FactoryOptions {}
+import { FactoryOptions, Middleware, Module } from '../interface';
+import { compose } from './middleware';
+import { traverseModule } from './module';
 
-export const createFactory = (
-  appModule: any,
-  options: FactoryOptions,
-  render: (value: {
-    locales: Record<string, Record<string, string>>;
-    store: Store<unknown, AnyAction>;
-    children: JSX.Element;
-  }) => React.FC,
-) => {
-  const modules = Reflect.getMetadata('imports', appModule);
+export const createFactory = (appModule: Module, options?: FactoryOptions) => {
+  const middleware: Middleware[] = Reflect.get(options, 'middleware') || [];
+  const res = compose(middleware, appModule);
 
-  const store = createFactoryModel(modules);
-  const locales = createFactoryLocale(modules);
-  const children = createFactoryRender(appModule);
-
-  return render({ locales, store, children });
+  return res;
 };
+
+export { traverseModule };

@@ -1,7 +1,7 @@
 {
-  "name": "@yuanjs/core",
+  "name": "@yuanjs/common",
   "version": "0.0.4",
-  "description": "yuanjs core packages",
+  "description": "yuanjs common packages",
   "author": "Qinmei <sun.houtao@outlook.com>",
   "homepage": "https://github.com/Qinmei/yuanjs#readme",
   "license": "ISC",
@@ -25,5 +25,7 @@
   "bugs": {
     "url": "https://github.com/Qinmei/yuanjs/issues"
   },
-  "dependencies": {}
+  "dependencies": {
+    "qs": "^6.10.3"
+  }
 }
