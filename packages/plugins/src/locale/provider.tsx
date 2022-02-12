@@ -1,5 +1,5 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import { FC, memo, useContext, useMemo } from 'react';
+import React, { FC, memo, useContext, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
 
 import { ConfigContext } from '../config/context';

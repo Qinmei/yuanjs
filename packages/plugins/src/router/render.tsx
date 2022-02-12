@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Middleware, Module } from '@yuan/core';
+import { Middleware, Module } from '@yuanjs/core';
 
 export const renderRouter: Middleware = (module, children) => {
   const render = createRender(module);
 
   return (
-    <BrowserRouter basename={process.env.NameSpace || undefined}>
+    <BrowserRouter basename={process.env.namespace || undefined}>
       {render.render || children}
     </BrowserRouter>
   );

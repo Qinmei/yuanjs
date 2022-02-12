@@ -1,4 +1,4 @@
-import { FC, createContext, useReducer, useState } from 'react';
+import React, { FC, createContext, useReducer, useState } from 'react';
 
 export type LocaleType = 'zh' | 'en';
 

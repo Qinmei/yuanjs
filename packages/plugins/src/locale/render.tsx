@@ -1,4 +1,5 @@
-import { Middleware, Module, traverseModule } from '@yuan/core';
+import React from 'react';
+import { Middleware, Module, traverseModule } from '@yuanjs/core';
 import { ConfigProvider } from './provider';
 
 export const renderLocale: Middleware = (module, children) => {
