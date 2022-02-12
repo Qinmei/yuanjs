@@ -1,4 +1,3 @@
-import { notification } from 'antd';
 import { stringify } from 'qs';
 
 import { Methods } from './url';
@@ -48,8 +47,7 @@ export class Request {
       ...props,
     })
       .then(this.statusCheck)
-      .then(this.resFormat)
-      .catch(this.errorHandler);
+      .then(this.resFormat);
   }
 
   static async resFormat(res: Response) {
@@ -65,23 +63,5 @@ export class Request {
       throw new HttpException(res.status, res.url);
     }
     return res;
-  }
-
-  static errorHandler(error: HttpException) {
-    if (error.status === 401) {
-      sessionStorage.clear();
-      notification.error({
-        message: 'Auth Failed',
-      });
-    } else {
-      notification.error({
-        message: error.message,
-        description: error.url,
-        style: {
-          wordBreak: 'break-all',
-        },
-      });
-    }
-    throw new HttpException(error.status, error.url);
   }
 }

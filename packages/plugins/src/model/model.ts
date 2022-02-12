@@ -1,16 +1,18 @@
 import { message } from 'antd';
 import { modelStore } from './store';
-import { Options, Request, RequestRes, Methods } from '@yuanjs/common';
+import {
+  Options,
+  Request,
+  RequestRes,
+  Methods,
+  ServiceException,
+} from '@yuanjs/common';
 
 export class Model<T> {
   constructor(public namespace: string, private initialState: T) {}
 
-  private success<T>(res: RequestRes<T>): [boolean, T, number, RequestRes<T>] {
-    return [true, res.data, res.code, res];
-  }
-
-  private error<T>(res: RequestRes<T>): [boolean, T, number, RequestRes<T>] {
-    return [false, res?.data, res.code, res];
+  private success<T>(res: RequestRes<T>) {
+    return res.data;
   }
 
   protected dispatch(payload: Partial<T>) {
@@ -35,7 +37,7 @@ export class Model<T> {
         return this.success(res);
       } else {
         res?.msg && message.error(res?.msg);
-        return this.error(res);
+        throw new ServiceException(res.response, res.msg);
       }
     });
   }
