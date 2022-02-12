@@ -4,7 +4,7 @@
  * 3. 将生成的组件层层包裹起来生成最终的组件详情
  */
 
-import { FactoryOptions, Middleware, Module } from '../interface';
+import { FactoryOptions, Middleware, Module } from '../interfaces';
 import { compose } from './middleware';
 import { traverseModule } from './module';
 

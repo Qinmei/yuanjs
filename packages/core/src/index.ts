@@ -1,2 +1,2 @@
 export * from './factory';
-export * from './interface';
+export * from './interfaces';
