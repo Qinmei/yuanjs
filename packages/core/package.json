@@ -1,6 +1,6 @@
 {
   "name": "@yuanjs/core",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "yuanjs core packages",
   "author": "Qinmei <sun.houtao@outlook.com>",
   "homepage": "https://github.com/Qinmei/yuanjs#readme",
@@ -24,6 +24,5 @@
   },
   "bugs": {
     "url": "https://github.com/Qinmei/yuanjs/issues"
-  },
-  "dependencies": {}
+  }
 }
