@@ -7,11 +7,9 @@ export const renderRouter: Middleware = (module, children) => {
   const render = createRender(module);
 
   return (
-    <div className="renderRouter">
-      <BrowserRouter basename={process.env.namespace || undefined}>
-        {render.render || children}
-      </BrowserRouter>
-    </div>
+    <BrowserRouter basename={process.env.namespace || undefined}>
+      {render.render || children}
+    </BrowserRouter>
   );
 };
 

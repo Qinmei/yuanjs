@@ -5,11 +5,7 @@ import { ConfigProvider } from './provider';
 export const renderLocale: Middleware = (module, children) => {
   const locales = generateLocales(module);
 
-  return (
-    <div className="renderLocale">
-      <ConfigProvider locales={locales}>{children}</ConfigProvider>
-    </div>
-  );
+  return <ConfigProvider locales={locales}>{children}</ConfigProvider>;
 };
 
 const generateLocales = (module: Module) => {
