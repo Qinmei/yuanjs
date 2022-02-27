@@ -1,6 +1,6 @@
 {
   "name": "@yuanjs/plugins",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "yuanjs plugins packages",
   "author": "Qinmei",
   "homepage": "https://github.com/Qinmei/yuanjs#readme",
@@ -26,8 +26,8 @@
     "url": "https://github.com/Qinmei/yuanjs/issues"
   },
   "dependencies": {
-    "@yuanjs/common": "^0.0.7",
-    "@yuanjs/core": "^0.0.7",
+    "@yuanjs/common": "^0.0.8",
+    "@yuanjs/core": "^0.0.8",
     "react-intl": "^5.24.4",
     "react-redux": "^7.2.6",
     "redux-devtools-extension": "^2.13.9"
