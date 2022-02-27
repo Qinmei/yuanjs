@@ -70,6 +70,6 @@ module.exports = opt => {
     resolve: {
       extensions: ['.ts', '.tsx', '...'],
     },
-    externals: ['react', 'antd'],
+    externals: ['react', 'react-dom', 'react-router-dom', 'antd'],
   };
 };
