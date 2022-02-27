@@ -10,5 +10,9 @@ export const renderModel: Middleware = (module, children) => {
   modelStore.init(module);
   const store = modelStore.getStore();
 
-  return <Provider store={store as Store}>{children}</Provider>;
+  return (
+    <div className="renderModel">
+      <Provider store={store as Store}>{children}</Provider>
+    </div>
+  );
 };
