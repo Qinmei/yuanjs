@@ -46,7 +46,7 @@ export class Model<T> {
     state = this.initialState,
     action: { type: string; payload: Partial<T> }
   ): T => {
-    if (action && action.type === this.namespace) {
+    if (action?.type === this.namespace) {
       return {
         ...state,
         ...action.payload,
