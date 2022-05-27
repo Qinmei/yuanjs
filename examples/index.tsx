@@ -14,7 +14,9 @@ export class AppModule {
 export const App = createFactory(
   AppModule,
   {},
-  ({ store, locales, children }) => () => <div>{children}</div>
+  ({ store, locales, children }) =>
+    () =>
+      <div>{children}</div>
 );
 
 render(<App />, document.getElementById('root'));
