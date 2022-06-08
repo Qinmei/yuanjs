@@ -1,0 +1,34 @@
+{
+  "name": "@yuanjs/cli",
+  "version": "0.0.5-beta.4",
+  "description": "yuanjs cli packages",
+  "author": "Qinmei <sun.houtao@outlook.com>",
+  "homepage": "https://github.com/Qinmei/yuanjs#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "bin",
+    "config",
+    "libs",
+    "scripts"
+  ],
+  "bin": {
+    "yuan-cli": "./bin/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qinmei/yuanjs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Qinmei/yuanjs/issues"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3"
+  }
+}
