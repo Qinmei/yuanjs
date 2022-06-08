@@ -12,4 +12,5 @@ export interface Module {
   locale?: { type: string; content: Record<string, string> }[];
   render?: React.FunctionComponentElement<PropsType>;
   models?: any[];
+  data?: Record<string, unknown>;
 }
