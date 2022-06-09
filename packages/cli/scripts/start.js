@@ -1,18 +1,42 @@
-process.env.BABEL_ENV = 'development';
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const path = require('path');
-const fs = require('fs');
+const { findArgsFromCli } = require('@craco/craco/lib/args');
 
-const projectRoot = fs.realpathSync(process.cwd());
+// Make sure this is called before "paths" is imported.
+findArgsFromCli();
 
-const resolveScriptsFilePath = fileName => {
-  return require.resolve(path.join('@craco/craco', 'scripts', fileName), {
-    paths: [projectRoot],
-  });
+const { log } = require('@craco/craco/lib/logger');
+const { getCraPaths, start } = require('@craco/craco/lib/cra');
+const { loadCracoConfigAsync } = require('@craco/craco/lib/config');
+const {
+  overrideWebpackDev,
+} = require('@craco/craco/lib/features/webpack/override');
+const {
+  overrideDevServer,
+} = require('@craco/craco/lib/features/dev-server/override');
+const { validateCraVersion } = require('@craco/craco/lib/validate-cra-version');
+const { processCracoConfig } = require('@craco/craco/lib/config');
+
+const config = require('../config/craco.config');
+
+log('Override started with arguments: ', process.argv);
+log('For environment: ', process.env.NODE_ENV);
+
+const context = {
+  env: process.env.NODE_ENV,
 };
 
-console.log('start', resolveScriptsFilePath, typeof resolveScriptsFilePath);
-const res = resolveScriptsFilePath('start.js');
+const loadConfig = async config => {
+  const cracoConfig = processCracoConfig(config, context);
 
-console.log(res);
+  validateCraVersion(cracoConfig);
+
+  context.paths = getCraPaths(cracoConfig);
+
+  overrideWebpackDev(cracoConfig, context);
+  overrideDevServer(cracoConfig, context);
+
+  start(cracoConfig);
+};
+
+loadConfig(config);

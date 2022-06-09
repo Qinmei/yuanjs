@@ -1,6 +1,6 @@
 {
   "name": "@yuanjs/cli",
-  "version": "0.0.5-beta.4",
+  "version": "0.0.5-beta.8",
   "description": "yuanjs cli packages",
   "author": "Qinmei <sun.houtao@outlook.com>",
   "homepage": "https://github.com/Qinmei/yuanjs#readme",
@@ -29,6 +29,7 @@
     "url": "https://github.com/Qinmei/yuanjs/issues"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.3"
+    "cross-spawn": "^7.0.3",
+    "@craco/craco": "^6.4.3"
   }
 }
