@@ -4,6 +4,7 @@ export type Options = {
   query?: unknown;
   data?: unknown;
   formData?: FormData;
+  header?: HeadersInit;
 };
 
 export type RequestRes<T> = {

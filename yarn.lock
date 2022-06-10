@@ -2520,6 +2520,29 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@yuanjs/common@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@yuanjs/common/-/common-0.0.10.tgz#f0cb3d53a5b9dfb02a8e23724544f6557a048f5c"
+  integrity sha512-XP7Wy+ScGvuktVq+i/VLngvfuuNIfWqrQztcxObfu6iMkrXrsjeXbcTny3jvaDun6rT0s1hNj2q31LJurYeXxQ==
+  dependencies:
+    qs "^6.10.3"
+
+"@yuanjs/core@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@yuanjs/core/-/core-0.0.10.tgz#ff5eed7a6c234ef479dc55de0762224bc27af650"
+  integrity sha512-J7ZzOUOgEf/QrsbbAa3eqNqlJTZh10CH/6dyHvF1CWWmM4wc76Hl48Mpc8RfyiWkMY2trHWsSzVOB4N+brnc/w==
+
+"@yuanjs/plugins@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@yuanjs/plugins/-/plugins-0.0.10.tgz#172e34dcb6336c1d32b349f5cd5b83f071fa141c"
+  integrity sha512-+kce55vIJ9U2SARcZeJHpcqSatEdCbNfpx6JaOfKi4f+nKkzqxe0gdkh109UWTtuap+AAgpEgOI3mAw0dhxJcw==
+  dependencies:
+    "@yuanjs/common" "^0.0.10"
+    "@yuanjs/core" "^0.0.10"
+    react-intl "^5.24.4"
+    react-redux "^7.2.6"
+    redux-devtools-extension "^2.13.9"
+
 JSONStream@^1.0.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"

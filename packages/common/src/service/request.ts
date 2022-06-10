@@ -5,12 +5,12 @@ import { HttpException } from '../exceptions';
 import { Options, RequestRes } from './interface';
 
 export class Request {
-  static async init<T>(
+  public async init<T>(
     methods: Methods,
     url: string,
     options: Options
   ): Promise<RequestRes<T>> {
-    const { params, query, data, formData, ...props } = options;
+    const { params, query, data, formData, header, ...props } = options;
 
     let defaultHeader: { [key: string]: string } = {
       Accept: 'application/json',
@@ -41,7 +41,7 @@ export class Request {
       body: formData ? formData : data ? JSON.stringify(data) : null,
       headers: {
         ...defaultHeader,
-        Authorization: sessionStorage.getItem('token') || '',
+        ...header,
       },
       method: methods,
       ...props,
@@ -50,7 +50,7 @@ export class Request {
       .then(this.resFormat);
   }
 
-  static async resFormat(res: Response) {
+  private async resFormat(res: Response) {
     const newRes = await res.json();
     return {
       ...newRes,
@@ -58,7 +58,7 @@ export class Request {
     };
   }
 
-  static statusCheck(res: Response): Response {
+  private statusCheck(res: Response): Response {
     if (![200, 201, 306].includes(res.status)) {
       throw new HttpException(res.status, res.url);
     }
