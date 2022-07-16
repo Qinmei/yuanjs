@@ -32,3 +32,4 @@ yarn-error.log*
 # packages lib
 /packages/**/lib
 /packages/**/types
+/packages/**/node_modules

@@ -1,14 +1,17 @@
 import { message } from 'antd';
-import { modelStore } from './store';
+
 import {
+  Methods,
   Options,
   Request,
   RequestRes,
-  Methods,
   ServiceException,
 } from '@yuanjs/common';
 
+import { modelStore } from './store';
+
 export class Model<T> {
+  private request = new Request();
   constructor(public namespace: string, private initialState: T) {}
 
   private success<T>(res: RequestRes<T>) {
@@ -31,7 +34,7 @@ export class Model<T> {
     data: Options,
     dispatch?: (payload: K) => void
   ) {
-    return Request.init<K>(method, url, data).then(async res => {
+    return this.request.init<K>(method, url, data).then(async res => {
       if ([200, 2000].includes(res?.code)) {
         dispatch && dispatch(res.data);
         return this.success(res);

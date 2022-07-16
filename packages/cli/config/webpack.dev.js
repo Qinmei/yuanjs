@@ -1,12 +1,13 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const babelConfig = require('../babel.config.json');
 
 const { appPath } = require('./paths');
 const babelConfig = require('../babel.config.json');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: path.resolve(appPath, './src/index'),
   output: {
     filename: 'index.js',

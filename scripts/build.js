@@ -1,15 +1,23 @@
-const webpack = require("webpack");
-const webpackConfig = require("./webpack/webpack.config");
-const fs = require("fs");
-const path = require("path");
-const packages = fs.readdirSync(path.resolve(__dirname, "../packages/"));
+const webpack = require('webpack');
+const webpackConfig = require('./webpack/webpack.config');
+const fs = require('fs');
+const path = require('path');
+const packages = fs.readdirSync(path.resolve(__dirname, '../packages/'));
+
+const args = process.argv.slice(2);
 
 const mapPackages = () => {
   const packageWebpackConfig = {};
 
-  packages.forEach((item) => {
-    let packagePath = path.resolve(__dirname, "../packages/", item);
-    const { name } = require(path.resolve(packagePath, "package.json"));
+  packages.forEach(item => {
+    let packagePath = path.resolve(__dirname, '../packages/', item);
+    const { name, noWebpack } = require(path.resolve(
+      packagePath,
+      'package.json'
+    ));
+
+    if (noWebpack) return;
+
     packageWebpackConfig[item] = {
       path: packagePath,
       name,
@@ -20,7 +28,7 @@ const mapPackages = () => {
 
 function build(configs) {
   // 遍历执行配置项
-  configs.forEach((config) => {
+  configs.forEach(config => {
     webpack(webpackConfig(config), (err, stats) => {
       if (err) {
         console.error(err);
@@ -41,7 +49,12 @@ function build(configs) {
   });
 }
 
-console.log("\n===> running build");
+console.log('\n===> running build');
 
-// 执行所有配置
-build(Object.values(mapPackages()));
+const configs = Object.values(mapPackages());
+const buildConfig = args.length
+  ? configs.filter(item => args.some(ele => new RegExp(ele).test(item.name)))
+  : configs;
+
+// 执行配置
+build(buildConfig);

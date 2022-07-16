@@ -1,0 +1,31 @@
+{
+    "env": {
+        "development": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "modules": false,
+                        "useBuildIns": "usage",
+                        "corejs": 3
+                    },
+                    "@babel/preset-typescript",
+                    "@babel/preset-react"
+                ]
+            ]
+        },
+        "production": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "modules": false,
+                        "useBuildIns": "usage",
+                        "corejs": 3
+                    },
+                    "@babel/preset-react"
+                ]
+            ]
+        }
+    }
+}

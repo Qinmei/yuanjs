@@ -15,3 +15,8 @@ export const traverseModule = (module: Module) => {
 
   return result;
 };
+
+export const forRoot = <T>(module: Module, data: T) => {
+  module.data = { ...module?.data, data };
+  return module;
+};
