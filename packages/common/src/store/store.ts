@@ -14,7 +14,7 @@ import { StoreEvent, HandlerByType, NullDefault, PickByKey } from './interface';
 export class Store<T> {
   private events: StoreEvent<T>[] = [];
 
-  constructor(private state: T) {}
+  constructor(private state: T) { }
 
   // 遍历events然后执行回调
   private initEvents = (oldState: Partial<T>, newState: Partial<T>) => {

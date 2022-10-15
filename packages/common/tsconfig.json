@@ -2,7 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "types",
-    "jsx": "react",
-    "esModuleInterop": true
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true
   }
 }
