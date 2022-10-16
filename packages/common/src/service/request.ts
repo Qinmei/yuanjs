@@ -10,7 +10,7 @@ export class Request {
     url: string,
     options: Options
   ): Promise<RequestRes<T>> {
-    const { params, query, data, formData, header, ...props } = options;
+    const { param, query, data, formData, header, ...props } = options;
 
     let defaultHeader: { [key: string]: string } = {
       Accept: 'application/json',
@@ -18,10 +18,10 @@ export class Request {
     };
 
     let link: string = url;
-    if (params) {
+    if (param) {
       link = link.replace(
         /\/:(\w+)/gm,
-        index => `/${params[`${index.replace(/\/:/g, '')}`]}`
+        index => `/${param[`${index.replace(/\/:/g, '')}`]}`
       );
     }
 

@@ -4,7 +4,6 @@
     "declarationDir": "types",
     "jsx": "react-jsx",
     "strict": true,
-    "esModuleInterop": true,
     "downlevelIteration": true
   }
 }

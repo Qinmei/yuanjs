@@ -11,7 +11,7 @@ export class Service {
       if ([10000].includes(res?.code)) {
         return res.data;
       } else {
-        throw new ServiceException(res.response, res.msg);
+        throw new ServiceException(res.response, res.msg as string);
       }
     });
   };

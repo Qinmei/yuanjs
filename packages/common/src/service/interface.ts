@@ -1,8 +1,8 @@
 export type Options = {
   [key: string]: unknown;
-  param?: unknown;
-  query?: unknown;
-  data?: unknown;
+  param?: any;
+  query?: any;
+  data?: any;
   formData?: FormData;
   header?: HeadersInit;
 };
