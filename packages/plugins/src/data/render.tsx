@@ -36,3 +36,10 @@ const generateConfig = (module: Module) => {
 };
 
 export { DataContext };
+
+renderData.init = {
+  name: 'renderData',
+  description: 'Render data module',
+  version: '1.0.0',
+  namespace: 'yuanjs.middleware.renderData',
+};

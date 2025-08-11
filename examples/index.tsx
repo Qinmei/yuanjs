@@ -1,22 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createFactory, Module } from '../packages/core/src/index';
+import { Yuan } from '../packages/core/src/factory';
+import { appModule } from './modules';
 
-@Module({
-  imports: [],
-})
-export class AppModule {
-  static render(children: any[]) {
-    return <div>sssss</div>;
-  }
-}
+const init = (App: JSX.Element) => {
+  render(App, document.getElementById('root'));
+};
 
-export const App = createFactory(
-  AppModule,
-  {},
-  ({ store, locales, children }) =>
-    () =>
-      <div>{children}</div>
-);
-
-render(<App />, document.getElementById('root'));
+export const yuan = new Yuan(appModule, { middleware: [renderRouter] }, init);
